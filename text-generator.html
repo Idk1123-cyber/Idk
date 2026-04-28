@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Among Us Chat Text Generator</title>
+    <link rel="stylesheet" href="text-generator.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AMONG US</h1>
+            <p class="subtitle">Text Chat Generator</p>
+        </div>
+
+        <div class="content">
+            <!-- Message Customizer -->
+            <div class="customizer-section">
+                <h2>Create Your Message</h2>
+                
+                <div class="form-group">
+                    <label for="player-name">Your Name/Username:</label>
+                    <input type="text" id="player-name" placeholder="Enter your name" maxlength="15">
+                </div>
+
+                <div class="form-group">
+                    <label for="message-text">Message:</label>
+                    <textarea id="message-text" placeholder="Type your message here..." rows="3" maxlength="500"></textarea>
+                    <small id="char-count">0/500 characters</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="text-style">Text Style:</label>
+                    <select id="text-style">
+                        <option value="normal">Normal</option>
+                        <option value="caps">ALL CAPS</option>
+                        <option value="lowercase">lowercase</option>
+                        <option value="reverse">Reverse Text</option>
+                        <option value="spaced">S P A C E D</option>
+                        <option value="dots">D.O.T.S</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="prefix">Add Prefix/Emoji:</label>
+                    <select id="prefix">
+                        <option value="">None</option>
+                        <option value="🔴">Red Circle 🔴</option>
+                        <option value="🔵">Blue Circle 🔵</option>
+                        <option value="🟢">Green Circle 🟢</option>
+                        <option value="🔶">Orange Circle 🔶</option>
+                        <option value="🟡">Yellow Circle 🟡</option>
+                        <option value="⚫">Black Circle ⚫</option>
+                        <option value="⚪">White Circle ⚪</option>
+                        <option value="🟣">Purple Circle 🟣</option>
+                        <option value="🟤">Brown Circle 🟤</option>
+                        <option value="💀">Skull 💀</option>
+                        <option value="👻">Ghost 👻</option>
+                        <option value="⚠️">Warning ⚠️</option>
+                        <option value="❗">Exclamation ❗</option>
+                        <option value="❌">X Mark ❌</option>
+                        <option value="✅">Check ✅</option>
+                        <option value="👀">Eyes 👀</option>
+                        <option value="🎮">Game 🎮</option>
+                    </select>
+                </div>
+
+                <button class="generate-btn" onclick="generateText()">Generate Text</button>
+            </div>
+
+            <!-- Generated Text Display -->
+            <div class="result-section">
+                <h2>Copy This Text</h2>
+                <div class="text-display" id="text-display">
+                    <p class="placeholder">Your generated text will appear here...</p>
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+                <p class="copy-status" id="copy-status"></p>
+            </div>
+        </div>
+
+        <!-- Quick Templates -->
+        <div class="templates-section">
+            <h2>Quick Templates</h2>
+            <div class="template-grid">
+                <button class="template-btn" onclick="useTemplate('sus')">
+                    Suspicious
+                </button>
+                <button class="template-btn" onclick="useTemplate('innocent')">
+                    Innocent
+                </button>
+                <button class="template-btn" onclick="useTemplate('voting')">
+                    Voting Info
+                </button>
+                <button class="template-btn" onclick="useTemplate('vent')">
+                    Vented
+                </button>
+                <button class="template-btn" onclick="useTemplate('task')">
+                    Task Info
+                </button>
+                <button class="template-btn" onclick="useTemplate('killed')">
+                    Body Found
+                </button>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions-section">
+            <h2>How to Use</h2>
+            <ol>
+                <li>Enter your name or username (max 15 characters)</li>
+                <li>Type your message (max 500 characters)</li>
+                <li>Choose a text style and optional emoji prefix</li>
+                <li>Click "Generate Text"</li>
+                <li>Click "Copy to Clipboard"</li>
+                <li>Paste into Among Us chat in-game</li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="text-generator.js"></script>
+</body>
+</html>

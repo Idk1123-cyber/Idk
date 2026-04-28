@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1a0033 0%, #330066 100%);
+    min-height: 100vh;
+    padding: 15px;
+    color: #fff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(255, 100, 100, 0.5);
+}
+
+.header h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #ff6464;
+    margin-bottom: 5px;
+    animation: pulse 2s infinite;
+}
+
+.subtitle {
+    font-size: 1em;
+    color: #aaa;
+    letter-spacing: 2px;
+}
+
+@keyframes pulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 100, 100, 0.5); }
+    50% { text-shadow: 0 0 40px rgba(255, 100, 100, 0.8); }
+}
+
+/* Content Sections */
+.content {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.customizer-section,
+.result-section,
+.templates-section,
+.instructions-section {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid #ff6464;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.customizer-section h2,
+.result-section h2,
+.templates-section h2,
+.instructions-section h2 {
+    color: #ff6464;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #ddd;
+    font-weight: 500;
+    font-size: 0.95em;
+}
+
+#player-name,
+#message-text,
+#text-style,
+#prefix {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #ff6464;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 0.95em;
+    font-family: 'Arial', sans-serif;
+}
+
+#player-name:focus,
+#message-text:focus,
+#text-style:focus,
+#prefix:focus {
+    outline: none;
+    border-color: #ffaa44;
+    box-shadow: 0 0 10px rgba(255, 170, 68, 0.3);
+}
+
+#message-text {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#text-style,
+#prefix {
+    cursor: pointer;
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+    color: #aaa;
+    font-size: 0.85em;
+}
+
+/* Buttons */
+.generate-btn,
+.copy-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: #ff6464;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s;
+}
+
+.generate-btn:hover,
+.copy-btn:hover {
+    background: #ff4444;
+    box-shadow: 0 0 15px rgba(255, 100, 100, 0.5);
+    transform: translateY(-2px);
+}
+
+.generate-btn:active,
+.copy-btn:active {
+    transform: translateY(0);
+}
+
+/* Text Display */
+.text-display {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px dashed #ff6464;
+    border-radius: 8px;
+    padding: 15px;
+    min-height: 80px;
+    word-break: break-word;
+    white-space: pre-wrap;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #ffcccc;
+    margin-bottom: 10px;
+}
+
+.text-display.empty {
+    color: #888;
+    font-style: italic;
+}
+
+.text-display p {
+    margin: 0;
+}
+
+.placeholder {
+    color: #666;
+    font-style: italic;
+}
+
+.copy-status {
+    text-align: center;
+    margin-top: 10px;
+    min-height: 20px;
+    color: #4f4;
+    font-weight: bold;
+}
+
+/* Templates */
+.template-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.template-btn {
+    padding: 12px;
+    background: rgba(255, 100, 100, 0.2);
+    border: 1px solid #ff6464;
+    color: #ff6464;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-size: 0.9em;
+}
+
+.template-btn:hover {
+    background: rgba(255, 100, 100, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px rgba(255, 100, 100, 0.3);
+}
+
+.template-btn:active {
+    transform: translateY(0);
+}
+
+/* Instructions */
+.instructions-section ol {
+    margin-left: 20px;
+}
+
+.instructions-section li {
+    margin-bottom: 10px;
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .content {
+        display: block;
+    }
+
+    .template-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .customizer-section,
+    .result-section,
+    .templates-section,
+    .instructions-section {
+        padding: 15px;
+    }
+
+    .text-display {
+        font-size: 0.85em;
+        padding: 12px;
+    }
+}
