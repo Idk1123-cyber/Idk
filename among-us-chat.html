@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Among Us Chat with Lag</title>
+    <link rel="stylesheet" href="among-us-chat.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <h1>AMONG US</h1>
+            <p class="subtitle">Text Chat Simulator</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Player Selection -->
+            <div class="player-selection">
+                <h2>Select Your Color</h2>
+                <div class="color-grid">
+                    <button class="color-btn red" onclick="selectColor('Red')" data-color="Red">Red</button>
+                    <button class="color-btn blue" onclick="selectColor('Blue')" data-color="Blue">Blue</button>
+                    <button class="color-btn green" onclick="selectColor('Green')" data-color="Green">Green</button>
+                    <button class="color-btn pink" onclick="selectColor('Pink')" data-color="Pink">Pink</button>
+                    <button class="color-btn orange" onclick="selectColor('Orange')" data-color="Orange">Orange</button>
+                    <button class="color-btn yellow" onclick="selectColor('Yellow')" data-color="Yellow">Yellow</button>
+                    <button class="color-btn black" onclick="selectColor('Black')" data-color="Black">Black</button>
+                    <button class="color-btn white" onclick="selectColor('White')" data-color="White">White</button>
+                    <button class="color-btn purple" onclick="selectColor('Purple')" data-color="Purple">Purple</button>
+                    <button class="color-btn brown" onclick="selectColor('Brown')" data-color="Brown">Brown</button>
+                </div>
+                <p id="selected-color">Selected: None</p>
+            </div>
+
+            <!-- Lag Settings -->
+            <div class="lag-settings">
+                <h2>Lag Settings</h2>
+                <div class="setting-group">
+                    <label for="lag-amount">Lag Delay (ms): <span id="lag-value">0</span></label>
+                    <input type="range" id="lag-amount" min="0" max="5000" step="100" value="0" oninput="updateLagValue(this.value)">
+                    <div class="lag-presets">
+                        <button onclick="setLag(0)">No Lag</button>
+                        <button onclick="setLag(500)">Light</button>
+                        <button onclick="setLag(1500)">Medium</button>
+                        <button onclick="setLag(3000)">Heavy</button>
+                        <button onclick="setLag(5000)">Extreme</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="packet-loss">Packet Loss (%): <span id="loss-value">0</span></label>
+                    <input type="range" id="packet-loss" min="0" max="100" step="5" value="0" oninput="updateLossValue(this.value)">
+                </div>
+
+                <div class="setting-group">
+                    <label>
+                        <input type="checkbox" id="disconnect-sim" onchange="toggleDisconnect()">
+                        Random Disconnects
+                    </label>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="chat-wrapper">
+                <div class="chat-box" id="chat-box"></div>
+                <div class="input-area">
+                    <input type="text" id="message-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+                <p class="status-text" id="status-text"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="among-us-chat.js"></script>
+</body>
+</html>
